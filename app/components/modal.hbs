@@ -1,0 +1,79 @@
+<div class='modal' id='modal'>
+  <div class='modal-backdrop'>
+    <div class='form-container' id='form-container'>
+      <form class='form' id='form' onkeydown='return event.keyCode != 13;'>
+        <LinkTo @route='index' class='close' id='close'>
+          x
+        </LinkTo>
+
+        {{#if @edit}}
+          <h1>i am an edit modal, this is ticket nr {{@ticket_id}} </h1>
+        {{/if}}
+
+        <Form::Select
+          @for='status'
+          @labelTitle='Status'
+          @name='name'
+          @id='selected'
+          @defaultValue='backlog'
+          @defaultTitle='Backlog'
+          @value1='in-development'
+          @title1='In Development'
+          @value2='in-testing'
+          @title2='In Testing'
+          @value3='accepted'
+          @title3='Accepted'
+        />
+
+        <Form::Input
+          @for='title'
+          @labelTitle='Title'
+          @type='text'
+          @name='title'
+          @id='title'
+          @value='Default Title'
+        />
+
+        <Form::Input
+          @for='developer'
+          @labelTitle='Developer Name'
+          @type='text'
+          @name='developer'
+          @id='developer'
+          @placeholder='Enter Name'
+        />
+
+        <Form::Input
+          @for='tester'
+          @labelTitle='Tester Name'
+          @type='text'
+          @name='tester'
+          @id='tester'
+          @placeholder='Enter Name'
+        />
+
+        <Form::Textarea
+          @for='description'
+          @labelTitle='Description'
+          @name='description'
+          @id='description'
+          @cols='30'
+          @rows='10'
+          @defaultMess='Enter description here'
+        />
+
+        {{#if @edit}}
+          <LinkTo @route='index' class='form-button-create'>Save Changes</LinkTo>
+
+        {{else}}
+          <LinkTo
+            @route='index'
+            {{on 'click' this.submitForm}}
+            class='form-button-create'
+            type='button'
+          >Create</LinkTo>
+        {{/if}}
+      </form>
+    </div>
+  </div>
+</div>
