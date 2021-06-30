@@ -1,0 +1,14 @@
+<div class='form-group'>
+  <label for={{@for}}>{{@labelTitle}}</label>
+  <select
+    name={{@name}}
+    id='selected'
+    value={{this.value}}
+    {{on 'change' this.select}}
+  >
+    <option value={{@defaultValue}}>{{@defaultTitle}}</option>
+    <option value={{@value1}}>{{@title1}}</option>
+    <option value={{@value2}}>{{@title2}}</option>
+    <option value={{@value3}}>{{@title3}}</option>
+  </select>
+</div>
