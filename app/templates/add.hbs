@@ -1,1 +1,9 @@
-<Modal @edit={{false}} />
+<Modal>
+  <p>this is an add modal</p>
+  <LinkTo
+    @route='index'
+    {{!--     {{on 'click' this.submitForm}} --}}
+    class='form-button-create'
+    type='button'
+  >Create</LinkTo>
+</Modal>

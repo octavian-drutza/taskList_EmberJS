@@ -4,10 +4,6 @@
       x
     </LinkTo>
 
-    {{#if @edit}}
-      <h1>i am an edit modal, this is ticket nr {{@ticket_id}} </h1>
-    {{/if}}
-
     <Form::Select
       @for='status'
       @labelTitle='Status'
@@ -60,16 +56,7 @@
       @defaultMess='Enter description here'
     />
 
-    {{#if @edit}}
-      <LinkTo @route='index' class='form-button-create'>Save Changes</LinkTo>
+    {{yield}}
 
-    {{else}}
-      <LinkTo
-        @route='index'
-        {{on 'click' this.submitForm}}
-        class='form-button-create'
-        type='button'
-      >Create</LinkTo>
-    {{/if}}
   </form>
 </div>
