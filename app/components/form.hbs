@@ -7,15 +7,15 @@
     <Form::Select
       @for='status'
       @labelTitle='Status'
-      @name='name'
+      @name='status'
       @id='selected'
-      @defaultValue='backlog'
+      @defaultOption='backlog'
       @defaultTitle='Backlog'
-      @value1='in-development'
+      @option1='in-development'
       @title1='In Development'
-      @value2='in-testing'
+      @option2='in-testing'
       @title2='In Testing'
-      @value3='accepted'
+      @option3='accepted'
       @title3='Accepted'
     />
 
@@ -25,7 +25,8 @@
       @type='text'
       @name='title'
       @id='title'
-      @value='Default Title'
+      @placeholder='Enter Title'
+      @value={{this.data.title}}
     />
 
     <Form::Input
@@ -35,6 +36,7 @@
       @name='developer'
       @id='developer'
       @placeholder='Enter Name'
+      @value={{this.data.developer}}
     />
 
     <Form::Input
@@ -44,6 +46,7 @@
       @name='tester'
       @id='tester'
       @placeholder='Enter Name'
+      @value={{this.data.tester}}
     />
 
     <Form::Textarea
@@ -53,10 +56,22 @@
       @id='description'
       @cols='30'
       @rows='10'
-      @defaultMess='Enter description here'
+      @placeholder='Enter description here'
+      @value={{this.data.description}}
     />
 
-    {{yield}}
+    <LinkTo
+      @route='index'
+      class='form-button-create'
+      type='button'
+    >Cancel</LinkTo>
+
+    <LinkTo
+      @route='index'
+      {{on 'click' this.submitForm}}
+      class='form-button-create'
+      type='button'
+    >{{yield}}</LinkTo>
 
   </form>
 </div>

@@ -1,6 +1,12 @@
 <div class='form-group'>
   <label for={{@for}}>{{@labelTitle}}</label>
-  <textarea name={{@name}} id={{@id}} cols={{@cols}} rows={{@rows}}>
-    {{@defaultMess}}</textarea>
+  <Textarea
+    name={{@name}}
+    id={{@id}}
+    cols={{@cols}}
+    rows={{@rows}}
+    @value={{@value}}
+    placeholder={{@placeholder}}
+  />
   <small>Error message</small>
 </div>
