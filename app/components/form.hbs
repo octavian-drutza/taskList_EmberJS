@@ -1,77 +1,10 @@
-<div class='form-container' id='form-container'>
-  <form class='form' id='form' onkeydown='return event.keyCode != 13;'>
-    <LinkTo @route='index' class='close' id='close'>
-      x
-    </LinkTo>
-
-    <Form::Select
-      @for='status'
-      @labelTitle='Status'
-      @name='status'
-      @id='selected'
-      @defaultOption='backlog'
-      @defaultTitle='Backlog'
-      @option1='in-development'
-      @title1='In Development'
-      @option2='in-testing'
-      @title2='In Testing'
-      @option3='accepted'
-      @title3='Accepted'
-    />
-
-    <Form::Input
-      @for='title'
-      @labelTitle='Title'
-      @type='text'
-      @name='title'
-      @id='title'
-      @placeholder='Enter Title'
-      @value={{this.data.title}}
-    />
-
-    <Form::Input
-      @for='developer'
-      @labelTitle='Developer Name'
-      @type='text'
-      @name='developer'
-      @id='developer'
-      @placeholder='Enter Name'
-      @value={{this.data.developer}}
-    />
-
-    <Form::Input
-      @for='tester'
-      @labelTitle='Tester Name'
-      @type='text'
-      @name='tester'
-      @id='tester'
-      @placeholder='Enter Name'
-      @value={{this.data.tester}}
-    />
-
-    <Form::Textarea
-      @for='description'
-      @labelTitle='Description'
-      @name='description'
-      @id='description'
-      @cols='30'
-      @rows='10'
-      @placeholder='Enter description here'
-      @value={{this.data.description}}
-    />
-
-    <LinkTo
-      @route='index'
-      class='form-button-create'
-      type='button'
-    >Cancel</LinkTo>
-
-    <LinkTo
-      @route='index'
+<div class='form-container'>
+  <form class='form'>
+    {{yield}}
+    <button
       {{on 'click' this.submitForm}}
       class='form-button-create'
       type='button'
-    >{{yield}}</LinkTo>
-
+    >Create</button>
   </form>
 </div>

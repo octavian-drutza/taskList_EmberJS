@@ -1,5 +1,14 @@
-<div class='modal' id='modal'>
+<div class='modal {{if this.isClosed 'hide'}}'>
   <div class='modal-backdrop'>
-    <Form>{{yield}}</Form>
+    <div class='modal-wrapper'>
+      <header class='modal-header'>
+        <button {{on 'click' this.close}} class='close'>
+          {{! change to button }}
+          x
+        </button></header>
+      <div class='modal-content'>
+        {{yield}}
+      </div>
+    </div>
   </div>
 </div>
