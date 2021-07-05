@@ -1,9 +1,8 @@
-<div class='modal {{if this.isClosed 'hide'}}'>
+<div class='modal'>
   <div class='modal-backdrop'>
     <div class='modal-wrapper'>
       <header class='modal-header'>
-        <button {{on 'click' this.close}} class='close'>
-          {{! change to button }}
+        <button {{on 'click' this.closeModal}} class='close'>
           x
         </button></header>
       <div class='modal-content'>

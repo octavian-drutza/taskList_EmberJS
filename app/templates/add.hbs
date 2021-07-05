@@ -1,9 +1,10 @@
-<Modal>
+<Modal @changeRoute={{this.changeRoute}}>
   <Form
     @title={{this.title}}
     @developer={{this.developer}}
     @tester={{this.tester}}
     @description={{this.description}}
+    @changeRoute={{this.changeRoute}}
   >
     <Form::Select
       @for='status'

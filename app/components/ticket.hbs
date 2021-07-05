@@ -1,6 +1,6 @@
-<div class='column-ticket' id='787' draggable='true' ticket_id={{@ticket_id}}>
+<div class='column-ticket' draggable='true'>
   <h4>{{@title}}</h4>
   <Ticket::Edit />
-  <Ticket::Delete />
+  <Ticket::Delete @ticket_id={{@ticket_id}} />
   <div class='ticket-date'>Last Change: {{@date}}</div>
 </div>
