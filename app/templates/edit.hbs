@@ -2,5 +2,62 @@
 <h1>{{this.model.title}}</h1>
 <h1>{{this.model.status}}</h1>
 
-{{!-- <h1>{{this.model}}</h1>
- --}}
+<Modal @changeRoute={{this.changeRoute}}>
+  <Form>
+    <Form::Select
+      @for='status'
+      @labelTitle='Status'
+      @name='status'
+      @id='selected'
+      @defaultOption={{this.model.status}}
+    />
+
+    <Form::Input
+      @for='title'
+      @labelTitle='Title'
+      @type='text'
+      @name='title'
+      @id='title'
+      @placeholder='Enter Title'
+      @ticketValue={{this.model.title}}
+      @value={{this.title}}
+    />
+
+    <Form::Input
+      @for='developer'
+      @labelTitle='Developer Name'
+      @type='text'
+      @name='developer'
+      @id='developer'
+      @placeholder='Enter Name'
+      @ticketValue={{this.model.developer}}
+      @value={{this.developer}}
+    />
+
+    <Form::Input
+      @for='tester'
+      @labelTitle='Tester Name'
+      @type='text'
+      @name='tester'
+      @id='tester'
+      @placeholder='Enter Name'
+      @ticketValue={{this.model.tester}}
+      @value={{this.tester}}
+    />
+
+    <Form::Textarea
+      @for='description'
+      @labelTitle='Description'
+      @name='description'
+      @id='description'
+      @cols='30'
+      @rows='10'
+      @placeholder='Enter description here'
+      @ticketValue={{this.model.description}}
+      @value={{this.description}}
+    />
+
+    <Form::SaveButton @submitChanges={{this.submitChanges}} />
+
+  </Form>
+</Modal>

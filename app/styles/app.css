@@ -51,7 +51,7 @@ body {
   width: max-content;
 }
 
-.column .column-ticket button {
+.ticket-button {
   cursor: pointer;
   background-color: #3498db;
   border: 2px solid #3498db;
@@ -60,6 +60,9 @@ body {
   display: inline-block;
   padding: 10px;
   margin-right: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 .modal-backdrop {

@@ -1,1 +1,4 @@
-<button {{on 'click' this.delete}}>Delete</button>
+<button
+  {{on 'click' (fn @delete @ticket_id)}}
+  class='ticket-button'
+>Delete</button>

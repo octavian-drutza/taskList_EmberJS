@@ -1,4 +1,22 @@
 <Header />
-<ColumnsContainer />
+<ColumnsContainer>
+  {{#each this.columnTypes as |column|}}
+    <Column
+      @status={{column.status}}
+      @header={{capitalize column.status}}
+      @message='Add or drop ticket'
+    >{{#each this.tickets.list as |ticket|}}
+        {{#if (compare column.status ticket.status)}}
+          <Ticket
+            @title={{ticket.title}}
+            @ticket_id={{ticket.id}}
+            @date='today'
+            @delete={{this.delete}}
+          />
+        {{/if}}
+      {{/each}}
+    </Column>
+  {{/each}}
+</ColumnsContainer>
 
 {{outlet}}

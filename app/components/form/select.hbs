@@ -1,9 +1,11 @@
 <div class='form-group'>
   <label for={{@for}}>{{@labelTitle}}</label>
   <select name={{@name}} id='selected'>
-    <option value={{@defaultOption}}>{{@defaultTitle}}</option>
-    <option value={{@option1}}>{{@title1}}</option>
-    <option value={{@option2}}>{{@title2}}</option>
-    <option value={{@option3}}>{{@title3}}</option>
+    <option value={{@defaultOption}}>{{capitalize @defaultOption}}</option>
+    {{#each this.values as |value|}}
+      {{#unless (compare value.option @defaultOption)}}
+        <option value={{value.option}}>{{capitalize value.option}}</option>
+      {{/unless}}
+    {{/each}}
   </select>
 </div>

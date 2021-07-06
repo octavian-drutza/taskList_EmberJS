@@ -1,24 +1,11 @@
 <Modal @changeRoute={{this.changeRoute}}>
-  <Form
-    @title={{this.title}}
-    @developer={{this.developer}}
-    @tester={{this.tester}}
-    @description={{this.description}}
-    @changeRoute={{this.changeRoute}}
-  >
+  <Form>
     <Form::Select
       @for='status'
       @labelTitle='Status'
       @name='status'
       @id='selected'
       @defaultOption='backlog'
-      @defaultTitle='Backlog'
-      @option1='in-development'
-      @title1='In Development'
-      @option2='in-testing'
-      @title2='In Testing'
-      @option3='accepted'
-      @title3='Accepted'
     />
 
     <Form::Input
@@ -62,6 +49,7 @@
       @value={{this.description}}
     />
 
+    <Form::SubmitButton @submitForm={{this.submitForm}} />
+
   </Form>
 </Modal>
-{{outlet}}>
