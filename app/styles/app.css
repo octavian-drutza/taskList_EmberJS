@@ -152,11 +152,11 @@ select:focus {
   text-decoration: none;
 }
 
-.form .close {
+.close {
   cursor: pointer;
   position: absolute;
-  left: 90%;
-  top: 1%;
+  left: 75%;
+  top: 8%;
 }
 
 .hide {

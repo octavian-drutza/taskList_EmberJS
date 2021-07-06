@@ -10,8 +10,8 @@
           <Ticket
             @title={{ticket.title}}
             @ticket_id={{ticket.id}}
-            @date='today'
             @delete={{this.delete}}
+            @date={{ticket.date}}
           />
         {{/if}}
       {{/each}}
