@@ -8,9 +8,9 @@ export default class Modal extends Component {
 
   @action
   delete() {
-    let toDie = this.tickets.list.filter((ticket) => {
+    let toDelete = this.tickets.list.filter((ticket) => {
       return this.args.ticket_id == ticket.id;
     });
-    this.tickets.remove(toDie[0]);
+    this.tickets.remove(toDelete[0]);
   }
 }
