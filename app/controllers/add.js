@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 export default class AddController extends Controller {
   @service('tickets') tickets;
   @service router;
+  @service('date') date;
 
   @action
   changeRoute() {
@@ -16,20 +17,6 @@ export default class AddController extends Controller {
     return Math.floor(Math.random() * 100000);
   }
 
-  get date() {
-    let date = new Date();
-    let settings = {
-      day: 'numeric',
-      month: '2-digit',
-      year: 'numeric',
-      hour12: false,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    };
-    return date.toLocaleString([], settings);
-  }
-
   get data() {
     return {
       id: this.generateID(),
@@ -38,7 +25,7 @@ export default class AddController extends Controller {
       developer: this.developer,
       tester: this.tester,
       description: this.description,
-      date: this.date,
+      date: this.date.date(),
     };
   }
 
