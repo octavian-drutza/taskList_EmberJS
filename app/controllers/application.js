@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default class ApplicationController extends Controller {
   @service('tickets') tickets;
-  @service('confirmation-dialog') dialog;
+  @service('dialog') dialog;
 
   columnTypes = [
     { status: 'backlog' },
@@ -19,5 +19,6 @@ export default class ApplicationController extends Controller {
       return id == ticket.id;
     });
     this.tickets.remove(toDelete[0]);
+    console.log(id);
   }
 }

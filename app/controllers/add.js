@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export default class AddController extends Controller {
   @service('tickets') tickets;
   @service('date') date;
-  @service('confirmation-dialog') dialog;
+  @service('dialog') dialog;
   @service router;
 
   @action
