@@ -4,8 +4,9 @@ import { action } from '@ember/object';
 
 export default class EditController extends Controller {
   @service('tickets') tickets;
-  @service router;
   @service('date') date;
+  @service('confirmation-dialog') dialog;
+  @service router;
 
   get data() {
     return {
@@ -24,12 +25,6 @@ export default class EditController extends Controller {
     this.router.transitionTo('/');
   }
 
-  /*   @action
-  ticketIndex() {
-    return this.tickets.list.findIndex((ticket) => ticket.id == this.model.id);
-  }
- */
-
   @action
   findTicket(id) {
     let ticket = this.tickets.list.filter((ticket) => {
@@ -43,5 +38,6 @@ export default class EditController extends Controller {
     this.tickets.remove(this.findTicket(this.model.id));
     this.tickets.add(this.data);
     this.changeRoute();
+    this.dialog.closeDialog();
   }
 }

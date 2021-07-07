@@ -57,7 +57,13 @@
       @value={{this.description}}
     />
 
-    <Form::SaveButton @submitChanges={{this.submitChanges}} />
+    <Form::SaveButton @submitChanges={{this.dialog.openDialog}} />
 
   </Form>
 </Modal>
+<ConfirmationDialog
+  @confirm={{this.submitChanges}}
+  @deny={{this.dialog.closeDialog}}
+  @open={{this.dialog.state}}
+  @message={{'Are you sure you want to save the changes to this ticket?'}}
+/>

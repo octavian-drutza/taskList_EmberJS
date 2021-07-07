@@ -4,8 +4,9 @@ import { action } from '@ember/object';
 
 export default class AddController extends Controller {
   @service('tickets') tickets;
-  @service router;
   @service('date') date;
+  @service('confirmation-dialog') dialog;
+  @service router;
 
   @action
   changeRoute() {
@@ -33,5 +34,6 @@ export default class AddController extends Controller {
   submitForm() {
     this.tickets.add(this.data);
     this.changeRoute();
+    this.dialog.closeDialog();
   }
 }

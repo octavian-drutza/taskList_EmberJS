@@ -49,7 +49,12 @@
       @value={{this.description}}
     />
 
-    <Form::SubmitButton @submitForm={{this.submitForm}} />
-
+    <Form::SubmitButton @submitForm={{this.dialog.openDialog}} />
   </Form>
 </Modal>
+<ConfirmationDialog
+  @confirm={{this.submitForm}}
+  @deny={{this.dialog.closeDialog}}
+  @open={{this.dialog.state}}
+  @message={{'Are you sure you want to create this ticket?'}}
+/>

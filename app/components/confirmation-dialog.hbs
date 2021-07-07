@@ -1,0 +1,11 @@
+<div class={{if @open 'dialog-backdrop' 'hide'}}>
+  <div class='dialog'>
+    <h3 class='dialog-message'>{{@message}}</h3>
+    <div class='button-container'>
+      <ConfirmationDialog::Confirm
+        @confirm={{@confirm}}
+      >Yes</ConfirmationDialog::Confirm>
+      <ConfirmationDialog::Deny @deny={{@deny}}>No</ConfirmationDialog::Deny>
+    </div>
+  </div>
+</div>
