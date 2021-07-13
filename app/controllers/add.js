@@ -21,7 +21,7 @@ export default class AddController extends Controller {
   get data() {
     return {
       id: this.generateID(),
-      status: selected.value,
+      status: selectStatus.value,
       title: this.title,
       developer: this.developer,
       tester: this.tester,

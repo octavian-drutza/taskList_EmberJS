@@ -1,12 +1,12 @@
-<Header />
-<ColumnsContainer>
-  {{#each this.columnTypes as |column|}}
-    <Column
-      @status={{column.status}}
-      @header={{capitalize column.status}}
+<Header @headerDate={{'date'}} @headerMessage={{'message'}} />
+<div class='columns-container'>
+  {{#each this.ticketTypes as |ticketContainer|}}
+    <TicketsContainer
+      @status={{ticketContainer.status}}
+      @header={{capitalize ticketContainer.status}}
       @message='Add or drop ticket'
     >{{#each this.tickets.list as |ticket|}}
-        {{#if (compare column.status ticket.status)}}
+        {{#if (compare ticketContainer.status ticket.status)}}
           <Ticket
             @title={{ticket.title}}
             @ticket_id={{ticket.id}}
@@ -15,8 +15,8 @@
           />
         {{/if}}
       {{/each}}
-    </Column>
+    </TicketsContainer>
   {{/each}}
-</ColumnsContainer>
+</div>
 
 {{outlet}}

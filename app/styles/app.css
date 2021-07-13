@@ -7,6 +7,11 @@ body {
   font-family: 'Roboto', 'Times New Roman', Times, serif;
 }
 
+.header-container {
+  display: inline-flex;
+  align-items: center;
+}
+
 .header-button {
   cursor: pointer;
   background-color: #3498db;

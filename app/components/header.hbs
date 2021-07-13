@@ -1,6 +1,10 @@
 <header class='header-main'>
-  <div id='header-container'>
-    <Header::Add />
-    <Header::Message @message='message' @date='date' />
+  <div class='header-container'>
+    <LinkTo @route='add' class='header-button'>+ Add</LinkTo>
+    <div class='header-message-container'>
+      <span class='message'>{{@headerMessage}}</span>
+      <span> : </span>
+      <span class='date'>{{@headerDate}}</span>
+    </div>
   </div>
 </header>

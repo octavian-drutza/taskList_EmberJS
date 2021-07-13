@@ -11,7 +11,7 @@ export default class EditController extends Controller {
   get data() {
     return {
       id: this.model.id,
-      status: selected.value,
+      status: selectStatus.value,
       title: this.title,
       developer: this.developer,
       tester: this.tester,

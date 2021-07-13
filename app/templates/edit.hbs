@@ -1,55 +1,42 @@
-<h1>{{this.model.id}}</h1>
-<h1>{{this.model.title}}</h1>
-<h1>{{this.model.status}}</h1>
-
-<Modal @changeRoute={{this.changeRoute}}>
+<h3>id: {{this.model.id}}</h3>
+<Modal @modalBtnClose={{this.changeRoute}}>
   <Form>
     <Form::Select
-      @for='status'
       @labelTitle='Status'
-      @name='status'
-      @id='selected'
+      @name='selectStatus'
       @defaultOption={{this.model.status}}
     />
 
     <Form::Input
-      @for='title'
       @labelTitle='Title'
       @type='text'
       @name='title'
-      @id='title'
       @placeholder='Enter Title'
       @ticketValue={{this.model.title}}
       @value={{this.title}}
     />
 
     <Form::Input
-      @for='developer'
       @labelTitle='Developer Name'
       @type='text'
       @name='developer'
-      @id='developer'
       @placeholder='Enter Name'
       @ticketValue={{this.model.developer}}
       @value={{this.developer}}
     />
 
     <Form::Input
-      @for='tester'
       @labelTitle='Tester Name'
       @type='text'
       @name='tester'
-      @id='tester'
       @placeholder='Enter Name'
       @ticketValue={{this.model.tester}}
       @value={{this.tester}}
     />
 
     <Form::Textarea
-      @for='description'
       @labelTitle='Description'
       @name='description'
-      @id='description'
       @cols='30'
       @rows='10'
       @placeholder='Enter description here'
@@ -57,13 +44,14 @@
       @value={{this.description}}
     />
 
-    <Form::SaveButton @submitChanges={{this.dialog.openDialog}} />
+    <Form::Button @formBtnAct={{this.dialog.openDialog}} @formBtnName='Save' />
 
   </Form>
 </Modal>
 <ConfirmationDialog
-  @confirm={{this.submitChanges}}
-  @deny={{this.dialog.closeDialog}}
-  @open={{this.dialog.state}}
-  @message={{'Are you sure you want to save the changes to this ticket?'}}
+  @ticketTitle={{this.model.title}}
+  @dialogConfirm={{this.submitChanges}}
+  @dialogDeny={{this.dialog.closeDialog}}
+  @isOpen={{this.dialog.state}}
+  @dialogMessage={{'Save changes to this ticket?'}}
 />

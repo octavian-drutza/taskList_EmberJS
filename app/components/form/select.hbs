@@ -1,6 +1,6 @@
 <div class='form-group'>
-  <label for={{@for}}>{{@labelTitle}}</label>
-  <select name={{@name}} id='selected'>
+  <label for={{@name}}>{{@labelTitle}}</label>
+  <select name={{@name}} id={{@name}}>
     <option value={{@defaultOption}}>{{capitalize @defaultOption}}</option>
     {{#each this.values as |value|}}
       {{#unless (compare value.option @defaultOption)}}

@@ -1,60 +1,54 @@
-<Modal @changeRoute={{this.changeRoute}}>
+<Modal @modalBtnClose={{this.changeRoute}}>
   <Form>
     <Form::Select
-      @for='status'
       @labelTitle='Status'
-      @name='status'
-      @id='selected'
+      @name='selectStatus'
       @defaultOption='backlog'
     />
 
     <Form::Input
-      @for='title'
       @labelTitle='Title'
       @type='text'
       @name='title'
-      @id='title'
       @placeholder='Enter Title'
       @value={{this.title}}
     />
 
     <Form::Input
-      @for='developer'
       @labelTitle='Developer Name'
       @type='text'
       @name='developer'
-      @id='developer'
       @placeholder='Enter Name'
       @value={{this.developer}}
     />
 
     <Form::Input
-      @for='tester'
       @labelTitle='Tester Name'
       @type='text'
       @name='tester'
-      @id='tester'
       @placeholder='Enter Name'
       @value={{this.tester}}
     />
 
     <Form::Textarea
-      @for='description'
       @labelTitle='Description'
       @name='description'
-      @id='description'
       @cols='30'
       @rows='10'
       @placeholder='Enter description here'
       @value={{this.description}}
     />
 
-    <Form::SubmitButton @submitForm={{this.dialog.openDialog}} />
+    <Form::Button
+      @formBtnAct={{this.dialog.openDialog}}
+      @formBtnName='Create'
+    />
   </Form>
 </Modal>
 <ConfirmationDialog
-  @confirm={{this.submitForm}}
-  @deny={{this.dialog.closeDialog}}
-  @open={{this.dialog.state}}
-  @message={{'Are you sure you want to create this ticket?'}}
+  @ticketTitle={{this.title}}
+  @dialogConfirm={{this.submitForm}}
+  @dialogDeny={{this.dialog.closeDialog}}
+  @isOpen={{this.dialog.state}}
+  @dialogMessage={{'Create this ticket?'}}
 />

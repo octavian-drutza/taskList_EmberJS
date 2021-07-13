@@ -1,0 +1,8 @@
+<h3>id: {{this.model.id}}</h3>
+<ConfirmationDialog
+  @ticketTitle={{this.model.title}}
+  @dialogConfirm={{fn this.delete this.model.id}}
+  @dialogDeny={{this.changeRoute}}
+  @isOpen={{true}}
+  @dialogMessage={{'Delete ticket?'}}
+/>

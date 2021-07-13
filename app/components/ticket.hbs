@@ -1,6 +1,14 @@
 <div class='column-ticket' draggable='true'>
   <h4>{{@title}}</h4>
-  <Ticket::Edit @ticket_id={{@ticket_id}} />
-  <Ticket::Delete @ticket_id={{@ticket_id}} @delete={{@delete}} />
+  <LinkTo
+    @route='edit'
+    @model={{@ticket_id}}
+    class='ticket-button'
+  >Edit</LinkTo>
+  <LinkTo
+    @route='delete'
+    @model={{@ticket_id}}
+    class='ticket-button'
+  >Delete</LinkTo>
   <div class='ticket-date'>Last Change: {{@date}}</div>
 </div>

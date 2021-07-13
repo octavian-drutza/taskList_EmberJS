@@ -1,9 +1,9 @@
 <div class='form-group'>
-  <label for={{@for}}>{{@labelTitle}}</label>
+  <label for={{concat @name @type}}>{{@labelTitle}}</label>
   <Input
     type={{@type}}
     name={{@name}}
-    id={{@id}}
+    id={{concat @name @type}}
     placeholder={{@placeholder}}
     @value={{@value}}
     value={{@ticketValue}}
