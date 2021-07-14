@@ -14,10 +14,6 @@ export default class TicketsService extends Service {
     this.toLocalStorage();
   }
 
-  /*   update(index, newTicket) {
-    this.list[index] = newTicket;
-  } */
-
   toLocalStorage() {
     localStorage.setItem('tickets', JSON.stringify(this.list));
   }

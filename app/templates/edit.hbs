@@ -1,5 +1,5 @@
 <h3>id: {{this.model.id}}</h3>
-<Modal @modalBtnClose={{this.changeRoute}}>
+<Modal @modalBtnClose={{this.application.changeRoute}}>
   <Form>
     <Form::Select
       @labelTitle='Status'
@@ -12,8 +12,7 @@
       @type='text'
       @name='title'
       @placeholder='Enter Title'
-      @ticketValue={{this.model.title}}
-      @value={{this.title}}
+      @value={{this.model.title}}
     />
 
     <Form::Input
@@ -21,8 +20,7 @@
       @type='text'
       @name='developer'
       @placeholder='Enter Name'
-      @ticketValue={{this.model.developer}}
-      @value={{this.developer}}
+      @value={{this.model.developer}}
     />
 
     <Form::Input
@@ -30,8 +28,7 @@
       @type='text'
       @name='tester'
       @placeholder='Enter Name'
-      @ticketValue={{this.model.tester}}
-      @value={{this.tester}}
+      @value={{this.model.tester}}
     />
 
     <Form::Textarea
@@ -40,8 +37,7 @@
       @cols='30'
       @rows='10'
       @placeholder='Enter description here'
-      @ticketValue={{this.model.description}}
-      @value={{this.description}}
+      @value={{this.model.description}}
     />
 
     <Form::Button @formBtnAct={{this.dialog.openDialog}} @formBtnName='Save' />

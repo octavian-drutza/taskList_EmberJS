@@ -6,9 +6,9 @@ export default class EditRoute extends Route {
 
   model(params) {
     const { id } = params;
-    let ticket = this.tickets.list.filter((ticket) => {
+    let ticket = this.tickets.list.find((ticket) => {
       return id == ticket.id;
     });
-    return ticket[0];
+    return ticket;
   }
 }

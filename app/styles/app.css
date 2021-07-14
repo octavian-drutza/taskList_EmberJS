@@ -53,7 +53,8 @@ body {
   margin-top: 8px;
   padding: 10px;
   cursor: move;
-  width: max-content;
+  width: auto;
+  max-width: 250px;
 }
 
 .ticket-button {
@@ -241,5 +242,6 @@ select:focus {
   }
   .column .column-ticket {
     width: auto;
+    max-width: unset;
   }
 }

@@ -1,4 +1,4 @@
-import Controller from '@ember/controller';
+import Controller, { inject as controller } from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
@@ -7,11 +7,7 @@ export default class AddController extends Controller {
   @service('date') date;
   @service('dialog') dialog;
   @service router;
-
-  @action
-  changeRoute() {
-    this.router.transitionTo('/');
-  }
+  @controller application;
 
   @action
   generateID() {
@@ -31,9 +27,18 @@ export default class AddController extends Controller {
   }
 
   @action
+  resetForm() {
+    this.title = '';
+    this.developer = '';
+    this.tester = '';
+    this.description = '';
+  }
+
+  @action
   submitForm() {
     this.tickets.add(this.data);
-    this.changeRoute();
+    this.application.changeRoute('/');
     this.dialog.closeDialog();
+    this.resetForm();
   }
 }

@@ -1,4 +1,4 @@
-import Controller from '@ember/controller';
+import Controller, { inject as controller } from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
@@ -7,37 +7,34 @@ export default class EditController extends Controller {
   @service('date') date;
   @service('dialog') dialog;
   @service router;
+  @controller application;
 
   get data() {
     return {
       id: this.model.id,
       status: selectStatus.value,
-      title: this.title,
-      developer: this.developer,
-      tester: this.tester,
-      description: this.description,
+      title: this.model.title,
+      developer: this.model.developer,
+      tester: this.model.tester,
+      description: this.model.description,
       date: this.date.date(),
     };
   }
 
   @action
-  changeRoute() {
-    this.router.transitionTo('/');
-  }
-
-  @action
-  findTicket(id) {
-    let ticket = this.tickets.list.filter((ticket) => {
-      return id == ticket.id;
-    });
-    return ticket[0];
+  resetForm() {
+    this.title = '';
+    this.developer = '';
+    this.tester = '';
+    this.description = '';
   }
 
   @action
   submitChanges() {
-    this.tickets.remove(this.findTicket(this.model.id));
+    this.tickets.remove(this.model);
     this.tickets.add(this.data);
-    this.changeRoute();
+    this.application.changeRoute('/');
     this.dialog.closeDialog();
+    this.resetForm();
   }
 }
