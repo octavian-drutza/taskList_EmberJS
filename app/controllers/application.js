@@ -3,7 +3,6 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
 export default class ApplicationController extends Controller {
-  @service('tickets') tickets;
   @service router;
 
   ticketTypes = [

@@ -39,16 +39,13 @@
       @value={{this.description}}
     />
 
-    <Form::Button
-      @formBtnAct={{this.dialog.openDialog}}
-      @formBtnName='Create'
-    />
+    <Form::Button @formBtnAct={{this.submitForm}} @formBtnName='Create' />
   </Form>
 </Modal>
-<ConfirmationDialog
+{{!-- <ConfirmationDialog
   @ticketTitle={{this.title}}
   @dialogConfirm={{this.submitForm}}
   @dialogDeny={{this.dialog.closeDialog}}
   @isOpen={{this.dialog.state}}
   @dialogMessage={{'Create this ticket?'}}
-/>
+/> --}}

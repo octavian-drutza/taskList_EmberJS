@@ -3,13 +3,13 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
 export default class DeleteController extends Controller {
-  @service('tickets') tickets;
   @service('dialog') dialog;
   @controller application;
+  @service store;
 
   @action
   delete() {
-    this.tickets.remove(this.model);
+    this.model.destroyRecord();
     this.application.changeRoute('/');
   }
 }

@@ -1,4 +1,4 @@
-import Service from '@ember/service';
+/* import Service from '@ember/service';
 import { A } from '@ember/array';
 
 export default class TicketsService extends Service {
@@ -22,3 +22,4 @@ export default class TicketsService extends Service {
     localStorage.removeItem('tickets');
   }
 }
+ */

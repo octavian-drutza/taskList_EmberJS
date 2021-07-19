@@ -5,17 +5,9 @@
       @status={{ticketContainer.status}}
       @header={{capitalize ticketContainer.status}}
       @message='Add or drop ticket'
-    >{{#each this.tickets.list as |ticket|}}
+    >{{#each this.model as |ticket|}}
         {{#if (compare ticketContainer.status ticket.status)}}
-          <Ticket
-            @title={{ticket.title}}
-            @developer={{ticket.developer}}
-            @tester={{ticket.tester}}
-            @description={{ticket.description}}
-            @ticket_id={{ticket.id}}
-            @delete={{this.delete}}
-            @date={{ticket.date}}
-          />
+          <Ticket @ticket={{ticket}} />
         {{/if}}
       {{/each}}
     </TicketsContainer>
