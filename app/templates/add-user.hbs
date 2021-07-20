@@ -1,0 +1,40 @@
+<Modal @modalBtnClose={{this.application.changeRoute}} @whereTo={{'/'}}>
+  <Form>
+    <h3>Add new user</h3>
+
+    <Form::Select
+      @labelTitle='Type'
+      @name='selectType'
+      @defaultOption='developer'
+      @values={{this.types}}
+    />
+
+    <Form::Input
+      @labelTitle='Name'
+      @type='text'
+      @name='name'
+      @placeholder='Enter Name'
+      @value={{this.name}}
+    />
+
+    <Form::Input
+      @labelTitle='Email'
+      @type='email'
+      @name='email'
+      @placeholder='Email'
+      @value={{this.email}}
+    />
+
+    <Form::Button
+      @formBtnAct={{this.dialog.openDialog}}
+      @formBtnName='Create'
+    />
+  </Form>
+</Modal>
+<ConfirmationDialog
+  @ticketTitle={{this.title}}
+  @dialogConfirm={{this.submitForm}}
+  @dialogDeny={{this.dialog.closeDialog}}
+  @isOpen={{this.dialog.state}}
+  @dialogMessage={{'Create this user?'}}
+/>

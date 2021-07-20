@@ -7,6 +7,13 @@ export default class EditController extends Controller {
   @service('dialog') dialog;
   @controller application;
 
+  stats = [
+    { option: 'backlog' },
+    { option: 'in-development' },
+    { option: 'in-testing' },
+    { option: 'accepted' },
+  ];
+
   @action
   resetForm() {
     this.title = '';

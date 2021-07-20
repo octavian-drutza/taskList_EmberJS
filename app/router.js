@@ -10,4 +10,6 @@ Router.map(function () {
   this.route('add');
   this.route('edit', { path: 'edit/:id' });
   this.route('delete', { path: 'delete/:id' });
+  this.route('ticket', { path: 'ticket/:id' });
+  this.route('add-user');
 });

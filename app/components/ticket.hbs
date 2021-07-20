@@ -1,5 +1,6 @@
 <div class='column-ticket' draggable='true'>
-  <h4>{{@ticket.title}}</h4>
+  <LinkTo @route='ticket' @model={{@ticket.id}} class='ticket-title'><h4
+    >{{@ticket.title}}</h4></LinkTo>
   <p>{{@ticket.developer}}</p>
   <p>{{@ticket.tester}}</p>
   <p>{{@ticket.description}}</p>

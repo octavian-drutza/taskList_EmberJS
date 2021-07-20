@@ -1,10 +1,12 @@
 <h3>id: {{this.model.id}}</h3>
-<Modal @modalBtnClose={{this.application.changeRoute}}>
+<Modal @modalBtnClose={{this.application.changeRoute}} @whereTo={{'/'}}>
   <Form>
+    <h3>Edit ticket</h3>
     <Form::Select
       @labelTitle='Status'
       @name='selectStatus'
       @defaultOption={{this.model.status}}
+      @values={{this.stats}}
     />
 
     <Form::Input

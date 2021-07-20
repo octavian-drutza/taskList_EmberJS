@@ -1,6 +1,7 @@
 import Controller, { inject as controller } from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+/* import { tracked } from '@glimmer/tracking'; */
 
 export default class AddController extends Controller {
   @controller application;
@@ -8,37 +9,28 @@ export default class AddController extends Controller {
   @service('dialog') dialog;
   @service store;
 
-  stats = [
-    { option: 'backlog' },
-    { option: 'in-development' },
-    { option: 'in-testing' },
-    { option: 'accepted' },
-  ];
+  types = [{ option: 'developer' }, { option: 'tester' }];
 
   get data() {
     return {
-      status: selectStatus.value,
-      title: this.title,
-      developer: this.developer,
-      tester: this.tester,
-      description: this.description,
-      date: this.date.date(),
+      type: selectType.value,
+      name: this.name,
+      email: this.email,
+      created: this.date.date(),
     };
   }
 
   @action
   resetForm() {
-    this.title = '';
-    this.developer = '';
-    this.tester = '';
-    this.description = '';
+    this.name = '';
+    this.email = '';
   }
 
   @action
   submitForm() {
     console.log(this.data);
-    let ticket = this.store.createRecord('ticket', this.data);
-    ticket.save();
+    let user = this.store.createRecord('user', this.data);
+    user.save();
     this.resetForm();
     this.dialog.closeDialog();
     this.application.changeRoute('/');

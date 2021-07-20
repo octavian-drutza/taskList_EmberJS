@@ -1,9 +1,11 @@
-<Modal @modalBtnClose={{this.application.changeRoute}}>
+<Modal @modalBtnClose={{this.application.changeRoute}} @whereTo={{'/'}}>
   <Form>
+    <h3>Add new ticket</h3>
     <Form::Select
       @labelTitle='Status'
       @name='selectStatus'
       @defaultOption='backlog'
+      @values={{this.stats}}
     />
 
     <Form::Input
@@ -39,13 +41,16 @@
       @value={{this.description}}
     />
 
-    <Form::Button @formBtnAct={{this.submitForm}} @formBtnName='Create' />
+    <Form::Button
+      @formBtnAct={{this.dialog.openDialog}}
+      @formBtnName='Create'
+    />
   </Form>
 </Modal>
-{{!-- <ConfirmationDialog
+<ConfirmationDialog
   @ticketTitle={{this.title}}
   @dialogConfirm={{this.submitForm}}
   @dialogDeny={{this.dialog.closeDialog}}
   @isOpen={{this.dialog.state}}
   @dialogMessage={{'Create this ticket?'}}
-/> --}}
+/>

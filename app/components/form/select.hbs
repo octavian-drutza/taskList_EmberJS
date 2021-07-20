@@ -2,7 +2,7 @@
   <label for={{@name}}>{{@labelTitle}}</label>
   <select name={{@name}} id={{@name}}>
     <option value={{@defaultOption}}>{{capitalize @defaultOption}}</option>
-    {{#each this.values as |value|}}
+    {{#each @values as |value|}}
       {{#unless (compare value.option @defaultOption)}}
         <option value={{value.option}}>{{capitalize value.option}}</option>
       {{/unless}}
