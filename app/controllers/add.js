@@ -6,18 +6,39 @@ export default class AddController extends Controller {
   @controller application;
   @service('date') date;
   @service('dialog') dialog;
+  @service('types') types;
   @service store;
 
-  stats = [
-    { option: 'backlog' },
-    { option: 'in-development' },
-    { option: 'in-testing' },
-    { option: 'accepted' },
-  ];
+  selected = this.types.statusType[0];
+  developer = '';
+  tester = '';
+
+  get developers() {
+    return this.model.filter((model) => model.type == 'developer');
+  }
+
+  get testers() {
+    return this.model.filter((model) => model.type == 'tester');
+  }
+
+  @action
+  changeStatus(status) {
+    this.set('selected', status);
+  }
+
+  @action
+  changeDeveloper(user) {
+    this.set('developer', user);
+  }
+
+  @action
+  changeTester(user) {
+    this.set('tester', user);
+  }
 
   get data() {
     return {
-      status: selectStatus.value,
+      status: this.selected.option,
       title: this.title,
       developer: this.developer,
       tester: this.tester,
@@ -37,8 +58,7 @@ export default class AddController extends Controller {
   @action
   submitForm() {
     console.log(this.data);
-    let ticket = this.store.createRecord('ticket', this.data);
-    ticket.save();
+    this.store.createRecord('ticket', this.data).save();
     this.resetForm();
     this.dialog.closeDialog();
     this.application.changeRoute('/');

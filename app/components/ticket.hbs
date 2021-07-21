@@ -1,8 +1,8 @@
 <div class='column-ticket' draggable='true'>
   <LinkTo @route='ticket' @model={{@ticket.id}} class='ticket-title'><h4
     >{{@ticket.title}}</h4></LinkTo>
-  <p>{{@ticket.developer}}</p>
-  <p>{{@ticket.tester}}</p>
+  <p>Developer: {{@ticket.developer.name}}</p>
+  <p>Tester: {{@ticket.tester.name}}</p>
   <p>{{@ticket.description}}</p>
   <LinkTo
     @route='edit'

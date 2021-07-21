@@ -257,6 +257,20 @@ select:focus {
   font-size: small;
 }
 
+.ember-basic-dropdown-trigger {
+  border: 2px solid grey;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.ember-power-select-selected-item {
+  font-size: inherit;
+}
+
 @media screen and (max-width: 800px) {
   .columns-container {
     flex-direction: column;

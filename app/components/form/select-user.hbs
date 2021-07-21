@@ -1,0 +1,13 @@
+<div class='form-group'>
+  <label for={{@name}}>{{@labelTitle}}</label>
+  <select name={{@name}} id={{@name}}>
+    <option selected disabled>{{@message}}</option>
+    {{#each @values as |value|}}
+      {{#unless (compare @message value.name)}}
+        {{#if (compare value.type @type)}}
+          <option value={{value.id}} label={{value.name}}></option>
+        {{/if}}
+      {{/unless}}
+    {{/each}}
+  </select>
+</div>

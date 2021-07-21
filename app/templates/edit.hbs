@@ -6,8 +6,17 @@
       @labelTitle='Status'
       @name='selectStatus'
       @defaultOption={{this.model.status}}
-      @values={{this.stats}}
+      @values={{this.types.statusType}}
     />
+
+    {{!--   <PowerSelect
+      @selected={{this.model.status}}
+      @options={{this.types.statusType}}
+      @onChange={{this.changeStatus}}
+      as |status|
+    >
+      {{status.label}}
+    </PowerSelect> --}}
 
     <Form::Input
       @labelTitle='Title'
@@ -17,20 +26,20 @@
       @value={{this.model.title}}
     />
 
-    <Form::Input
-      @labelTitle='Developer Name'
-      @type='text'
-      @name='developer'
-      @placeholder='Enter Name'
-      @value={{this.model.developer}}
+    <Form::SelectUser
+      @labelTitle='Developers'
+      @name='selectDeveloper'
+      @values={{this.users}}
+      @type='developer'
+      @message={{this.model.developer.name}}
     />
 
-    <Form::Input
-      @labelTitle='Tester Name'
-      @type='text'
-      @name='tester'
-      @placeholder='Enter Name'
-      @value={{this.model.tester}}
+    <Form::SelectUser
+      @labelTitle='Testers'
+      @name='selectTester'
+      @values={{this.users}}
+      @type='tester'
+      @message={{this.model.tester.name}}
     />
 
     <Form::Textarea

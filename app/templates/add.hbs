@@ -1,12 +1,34 @@
 <Modal @modalBtnClose={{this.application.changeRoute}} @whereTo={{'/'}}>
   <Form>
     <h3>Add new ticket</h3>
-    <Form::Select
-      @labelTitle='Status'
-      @name='selectStatus'
-      @defaultOption='backlog'
-      @values={{this.stats}}
-    />
+    <PowerSelect
+      @selected={{this.selected}}
+      @options={{this.types.statusType}}
+      @onChange={{this.changeStatus}}
+      as |status|
+    >
+      {{status.label}}
+    </PowerSelect>
+
+    <PowerSelect
+      @placeholder='Choose your developer'
+      @selected={{this.developer}}
+      @options={{this.developers}}
+      @onChange={{this.changeDeveloper}}
+      as |user|
+    >
+      {{user.name}}
+    </PowerSelect>
+
+    <PowerSelect
+      @placeholder='Choose your tester'
+      @selected={{this.tester}}
+      @options={{this.testers}}
+      @onChange={{this.changeTester}}
+      as |user|
+    >
+      {{user.name}}
+    </PowerSelect>
 
     <Form::Input
       @labelTitle='Title'
@@ -14,22 +36,6 @@
       @name='title'
       @placeholder='Enter Title'
       @value={{this.title}}
-    />
-
-    <Form::Input
-      @labelTitle='Developer Name'
-      @type='text'
-      @name='developer'
-      @placeholder='Enter Name'
-      @value={{this.developer}}
-    />
-
-    <Form::Input
-      @labelTitle='Tester Name'
-      @type='text'
-      @name='tester'
-      @placeholder='Enter Name'
-      @value={{this.tester}}
     />
 
     <Form::Textarea
