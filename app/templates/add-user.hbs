@@ -2,12 +2,14 @@
   <Form>
     <h3>Add new user</h3>
 
-    <Form::Select
-      @labelTitle='Type'
-      @name='selectType'
-      @defaultOption='developer'
-      @values={{this.types.userType}}
-    />
+    <PowerSelect
+      @selected={{this.selected}}
+      @options={{this.types.userType}}
+      @onChange={{this.changeType}}
+      as |type|
+    >
+      {{type.label}}
+    </PowerSelect>
 
     <Form::Input
       @labelTitle='Name'

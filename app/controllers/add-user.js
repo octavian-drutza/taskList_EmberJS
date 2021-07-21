@@ -10,9 +10,16 @@ export default class AddController extends Controller {
   @service('types') types;
   @service store;
 
+  selected = this.types.userType[0];
+
+  @action
+  changeType(type) {
+    this.set('selected', type);
+  }
+
   get data() {
     return {
-      type: selectType.value,
+      type: this.selected.option,
       name: this.name,
       email: this.email,
       created: this.date.date(),

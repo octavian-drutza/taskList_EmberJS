@@ -14,12 +14,12 @@ export default class EditController extends Controller {
   get users() {
     return this.store.findAll('user');
   }
-  /* 
+
   @action
   changeStatus(status) {
     this.set('selected', status);
   }
- */
+
   @action
   resetForm() {
     this.title = '';
