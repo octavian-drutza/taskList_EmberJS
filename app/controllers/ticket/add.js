@@ -2,7 +2,7 @@ import Controller, { inject as controller } from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
-export default class AddController extends Controller {
+export default class TicketAddController extends Controller {
   @controller application;
   @service('date') date;
   @service('types') types;

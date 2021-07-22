@@ -1,16 +1,16 @@
 <div class='column-ticket' draggable='true'>
-  <LinkTo @route='ticket' @model={{@ticket.id}} class='ticket-title'><h4
+  <LinkTo @route='ticket.preview' @model={{@ticket.id}} class='ticket-title'><h4
     >{{@ticket.title}}</h4></LinkTo>
   <p>Developer: {{@ticket.developer.name}}</p>
   <p>Tester: {{@ticket.tester.name}}</p>
   <p>{{@ticket.description}}</p>
   <LinkTo
-    @route='edit'
+    @route='ticket.edit'
     @model={{@ticket.id}}
     class='ticket-button'
   >Edit</LinkTo>
   <LinkTo
-    @route='delete'
+    @route='ticket.delete'
     @model={{@ticket.id}}
     class='ticket-button'
   >Delete</LinkTo>

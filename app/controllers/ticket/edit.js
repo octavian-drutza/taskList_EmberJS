@@ -2,7 +2,7 @@ import Controller, { inject as controller } from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
-export default class EditController extends Controller {
+export default class TicketEditController extends Controller {
   @service('date') date;
   @service('dialog') dialog;
   @service('types') types;
@@ -12,6 +12,7 @@ export default class EditController extends Controller {
   @action
   saveChanges() {
     this.model.ticket.save().then(() => this.application.changeRoute('/'));
+    this.dialog.closeDialog();
   }
 
   @action

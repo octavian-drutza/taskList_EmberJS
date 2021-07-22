@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
 
-export default class EditRoute extends Route {
+export default class TicketEditRoute extends Route {
   @service store;
 
   model(params) {
