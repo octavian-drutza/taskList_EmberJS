@@ -1,11 +1,10 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class TicketModel extends Model {
-  @belongsTo('user') user;
   @attr status;
   @attr title;
-  @attr developer;
-  @attr tester;
+  @belongsTo('user', { inverse: null }) developer;
+  @belongsTo('user', { inverse: null }) tester;
   @attr description;
   @attr date;
 }

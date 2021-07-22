@@ -6,6 +6,12 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    'ember-local-storage': {
+      namespace: true, // will use the modulePrefix e.g. 'my-app'
+      namespace: 'taskList', // will use 'customNamespace'
+      keyDelimiter: '/', // will use / as a delimiter - the default is :
+      includeEmberDataSupport: true,
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

@@ -1,30 +1,31 @@
-<Modal @modalBtnClose={{this.application.changeRoute}} @whereTo={{'/'}}>
+<Modal @modalBtnClose={{this.cancelCreation}} @path={{'/'}}>
   <Form>
     <h3>Add new ticket</h3>
     <PowerSelect
-      @selected={{this.selected}}
+      @placeholder='Choose status...'
+      @selected={{this.createTicket.status}}
       @options={{this.types.statusType}}
-      @onChange={{this.changeStatus}}
+      @onChange={{fn (mut this.createTicket.status)}}
       as |status|
     >
-      {{status.label}}
+      {{capitalize status}}
     </PowerSelect>
 
     <PowerSelect
-      @placeholder='Choose your developer'
-      @selected={{this.developer}}
+      @placeholder='Choose your developer...'
+      @selected={{this.createTicket.developer}}
       @options={{this.developers}}
-      @onChange={{this.changeDeveloper}}
+      @onChange={{fn (mut this.createTicket.developer)}}
       as |user|
     >
       {{user.name}}
     </PowerSelect>
 
     <PowerSelect
-      @placeholder='Choose your tester'
-      @selected={{this.tester}}
+      @placeholder='Choose your tester...'
+      @selected={{this.createTicket.tester}}
       @options={{this.testers}}
-      @onChange={{this.changeTester}}
+      @onChange={{fn (mut this.createTicket.tester)}}
       as |user|
     >
       {{user.name}}
@@ -35,7 +36,7 @@
       @type='text'
       @name='title'
       @placeholder='Enter Title'
-      @value={{this.title}}
+      @value={{this.createTicket.title}}
     />
 
     <Form::Textarea
@@ -44,19 +45,9 @@
       @cols='30'
       @rows='10'
       @placeholder='Enter description here'
-      @value={{this.description}}
+      @value={{this.createTicket.description}}
     />
 
-    <Form::Button
-      @formBtnAct={{this.dialog.openDialog}}
-      @formBtnName='Create'
-    />
+    <Form::Button @formBtnAct={{this.create}} @formBtnName='Create' />
   </Form>
 </Modal>
-<ConfirmationDialog
-  @ticketTitle={{this.title}}
-  @dialogConfirm={{this.submitForm}}
-  @dialogDeny={{this.dialog.closeDialog}}
-  @isOpen={{this.dialog.state}}
-  @dialogMessage={{'Create this ticket?'}}
-/>

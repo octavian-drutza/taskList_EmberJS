@@ -7,4 +7,16 @@ export default class AddRoute extends Route {
   model() {
     return this.store.findAll('user');
   }
+
+  setupController(controller, model) {
+    controller.set(
+      'developers',
+      model.filter((user) => user.type === 'developer')
+    );
+    controller.set(
+      'testers',
+      model.filter((user) => user.type === 'tester')
+    );
+    controller.set('createTicket', this.store.createRecord('ticket'));
+  }
 }

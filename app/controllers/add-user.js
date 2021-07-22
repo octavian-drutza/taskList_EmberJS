@@ -6,38 +6,17 @@ import { tracked } from '@glimmer/tracking';
 export default class AddController extends Controller {
   @controller application;
   @service('date') date;
-  @service('dialog') dialog;
   @service('types') types;
   @service store;
 
-  selected = this.types.userType[0];
-
   @action
-  changeType(type) {
-    this.set('selected', type);
-  }
-
-  get data() {
-    return {
-      type: this.selected.option,
-      name: this.name,
-      email: this.email,
-      created: this.date.date(),
-    };
+  create() {
+    this.createUser.save().then(() => this.application.changeRoute('/'));
   }
 
   @action
-  resetForm() {
-    this.name = '';
-    this.email = '';
-  }
-
-  @action
-  submitForm() {
-    console.log(this.data);
-    this.store.createRecord('user', this.data).save();
-    this.resetForm();
-    this.dialog.closeDialog();
-    this.application.changeRoute('/');
+  cancelCreation(path) {
+    this.createUser.destroyRecord();
+    this.application.changeRoute(path);
   }
 }

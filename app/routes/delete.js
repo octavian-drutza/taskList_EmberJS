@@ -5,6 +5,8 @@ export default class DeleteRoute extends Route {
   @service store;
 
   model(params) {
-    return this.store.findRecord('ticket', params.id);
+    return this.store.findRecord('ticket', params.id, {
+      include: 'developer, tester',
+    });
   }
 }

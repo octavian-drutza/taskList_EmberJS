@@ -2,9 +2,10 @@
   <div class='modal-backdrop'>
     <div class='modal-wrapper'>
       <header class='modal-header'>
-        <button {{on 'click' (fn @modalBtnClose @whereTo)}} class='close'>
+        <button {{on 'click' (fn @modalBtnClose @path)}} class='close'>
           x
-        </button></header>
+        </button>
+      </header>
       <div class='modal-content'>
         {{yield}}
       </div>

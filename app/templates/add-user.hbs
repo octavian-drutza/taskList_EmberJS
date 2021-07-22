@@ -1,14 +1,15 @@
-<Modal @modalBtnClose={{this.application.changeRoute}} @whereTo={{'/'}}>
+<Modal @modalBtnClose={{this.cancelCreation}} @path={{'/'}}>
   <Form>
     <h3>Add new user</h3>
 
     <PowerSelect
-      @selected={{this.selected}}
+      @placeholder='Choose user type...'
+      @selected={{this.createUser.type}}
       @options={{this.types.userType}}
-      @onChange={{this.changeType}}
+      @onChange={{fn (mut this.createUser.type)}}
       as |type|
     >
-      {{type.label}}
+      {{capitalize type}}
     </PowerSelect>
 
     <Form::Input
@@ -16,7 +17,7 @@
       @type='text'
       @name='name'
       @placeholder='Enter Name'
-      @value={{this.name}}
+      @value={{this.createUser.name}}
     />
 
     <Form::Input
@@ -24,19 +25,9 @@
       @type='email'
       @name='email'
       @placeholder='Email'
-      @value={{this.email}}
+      @value={{this.createUser.email}}
     />
 
-    <Form::Button
-      @formBtnAct={{this.dialog.openDialog}}
-      @formBtnName='Create'
-    />
+    <Form::Button @formBtnAct={{this.create}} @formBtnName='Create' />
   </Form>
 </Modal>
-<ConfirmationDialog
-  @ticketTitle={{this.title}}
-  @dialogConfirm={{this.submitForm}}
-  @dialogDeny={{this.dialog.closeDialog}}
-  @isOpen={{this.dialog.state}}
-  @dialogMessage={{'Create this user?'}}
-/>

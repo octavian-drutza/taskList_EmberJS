@@ -9,34 +9,14 @@ export default class EditController extends Controller {
   @controller application;
   @service store;
 
-  /*   selected = this.model.status; */
-
-  get users() {
-    return this.store.findAll('user');
+  @action
+  saveChanges() {
+    this.model.ticket.save().then(() => this.application.changeRoute('/'));
   }
 
   @action
-  changeStatus(status) {
-    this.set('selected', status);
-  }
-
-  @action
-  resetForm() {
-    this.title = '';
-    this.developer = '';
-    this.tester = '';
-    this.description = '';
-  }
-
-  @action
-  submitChanges() {
-    console.log(this.model.status);
-    this.model.status = selectStatus.value;
-    this.model.developer = this.store.peekRecord('user', selectDeveloper.value);
-    this.model.tester = this.store.peekRecord('user', selectTester.value);
-    this.model.save();
-    this.application.changeRoute('/');
-    this.dialog.closeDialog();
-    this.resetForm();
+  discardChanges(path) {
+    this.model.ticket.rollbackAttributes();
+    this.application.changeRoute(path);
   }
 }
