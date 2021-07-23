@@ -1,12 +1,12 @@
 <Header @headerDate={{'date'}} @headerMessage={{'message'}} />
 <div class='columns-container'>
-  {{#each this.ticketTypes as |ticketContainer|}}
+  {{#each this.types.statusType as |ticketContainer|}}
     <TicketsContainer
-      @status={{ticketContainer.status}}
-      @header={{capitalize ticketContainer.status}}
+      @status={{ticketContainer}}
+      @header={{capitalize ticketContainer}}
       @message='Add or drop ticket'
     >{{#each this.model as |ticket|}}
-        {{#if (compare ticketContainer.status ticket.status)}}
+        {{#if (compare ticketContainer ticket.status)}}
           <Ticket @ticket={{ticket}} />
         {{/if}}
       {{/each}}

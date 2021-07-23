@@ -4,13 +4,7 @@ import { action } from '@ember/object';
 
 export default class ApplicationController extends Controller {
   @service router;
-
-  ticketTypes = [
-    { status: 'backlog' },
-    { status: 'in-development' },
-    { status: 'in-testing' },
-    { status: 'accepted' },
-  ];
+  @service('types') types;
 
   @action
   changeRoute(destination) {
