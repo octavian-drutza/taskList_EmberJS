@@ -3,6 +3,7 @@
 <Modal @modalBtnClose={{this.discardChanges}} @path={{'/'}}>
   <Form>
     <h3>Edit ticket</h3>
+    <small>Change status?</small>
     <PowerSelect
       @selected={{capitalize this.model.ticket.status}}
       @options={{this.types.statusType}}
@@ -11,15 +12,7 @@
     >
       {{capitalize status}}
     </PowerSelect>
-
-    <Form::Input
-      @labelTitle='Title'
-      @type='text'
-      @name='title'
-      @placeholder='Enter Title'
-      @value={{this.model.ticket.title}}
-    />
-
+    <small>Change developer?</small>
     <PowerSelect
       @selected={{this.model.ticket.developer}}
       @options={{this.developers}}
@@ -28,7 +21,7 @@
     >
       {{user.name}}
     </PowerSelect>
-
+    <small>Change tester?</small>
     <PowerSelect
       @selected={{this.model.ticket.tester}}
       @options={{this.testers}}
@@ -38,6 +31,13 @@
       {{user.name}}
     </PowerSelect>
 
+    <Form::Input
+      @labelTitle='Title'
+      @type='text'
+      @name='title'
+      @placeholder='Enter Title'
+      @value={{this.model.ticket.title}}
+    />
     <Form::Textarea
       @labelTitle='Description'
       @name='description'

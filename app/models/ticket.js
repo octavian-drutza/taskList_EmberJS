@@ -4,7 +4,7 @@ export default class TicketModel extends Model {
   @attr status;
   @attr title;
   @belongsTo('user', { inverse: null }) developer;
-  @belongsTo('user', { inverse: null }) tester;
+  @belongsTo('user', { inverse: 'tickets' }) tester;
   @attr description;
   @attr date;
 }

@@ -11,6 +11,12 @@ export default class TicketAddController extends Controller {
   @action
   create() {
     console.log(this.model);
+    /*     this.createTicket.eachAttribute((name, meta) => {
+      console.log(name, meta);
+    }); */
+    for (let [key, value] of Object.entries(this.createTicket)) {
+      console.log(key, value);
+    }
     this.createTicket.date = this.date.date();
     this.createTicket.save().then(() => this.application.changeRoute('/'));
   }

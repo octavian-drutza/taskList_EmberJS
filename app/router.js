@@ -11,11 +11,11 @@ Router.map(function () {
     this.route('add');
     this.route('edit', { path: 'edit/:id' });
     this.route('delete', { path: 'delete/:id' });
-    this.route('preview', { path: 'ticket/:id' });
+    this.route('preview', { path: 'preview/:id' });
   });
 
   this.route('user', function () {
     this.route('add');
-    this.route('preview', { path: 'user/:id' });
+    this.route('preview', { path: 'preview/:id' });
   });
 });

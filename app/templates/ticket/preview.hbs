@@ -5,10 +5,16 @@
     <span>status: {{this.model.status}}</span>
   </p>
   <p>
-    <span>developer: {{this.model.developer.name}} </span>
+    <LinkTo @route='user.preview' @model={{this.model.developer.id}}>
+      developer:
+      {{this.model.developer.name}}
+    </LinkTo>
   </p>
   <p>
-    <span>tester: {{this.model.tester.name}}</span>
+    <LinkTo @route='user.preview' @model={{this.model.tester.id}}>
+      tester:
+      {{this.model.tester.name}}
+    </LinkTo>
   </p>
   <p>
     <span>details: {{this.model.description}}</span>

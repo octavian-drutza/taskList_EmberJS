@@ -1,2 +1,11 @@
-{{page-title "Preview"}}
+{{page-title 'Preview'}}
+
+{{this.model.name}}
+
+{{#each this.model.tickets as |ticket|}}
+  <ul>
+    <li>{{ticket.title}}</li>
+  </ul>
+{{/each}}
+
 {{outlet}}

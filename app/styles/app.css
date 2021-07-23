@@ -179,15 +179,21 @@ body {
 }
 
 .form-group {
-  margin-bottom: 10px;
-  padding-bottom: 20px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   position: relative;
 }
 
 .form-group label {
+  font-size: smaller;
   color: black;
   display: block;
   margin-bottom: 5px;
+}
+
+.ember-text-area.ember-view {
+  font-family: inherit;
 }
 
 .form-group input,
