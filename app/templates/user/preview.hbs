@@ -1,11 +1,13 @@
-{{page-title 'Preview'}}
+{{page-title 'User Details'}}
 
-{{this.model.name}}
+<div class='user-big'>
+  <h1>User Name: {{this.model.name}} </h1>
+  <h2>Email: {{this.model.email}} </h2>
+  <h3>Tickets: </h3>
+  {{#each this.model.tickets as |ticket|}}
+    <ul>
+      <li>{{ticket.title}}</li>
+    </ul>
+  {{/each}}
 
-{{#each this.model.tickets as |ticket|}}
-  <ul>
-    <li>{{ticket.title}}</li>
-  </ul>
-{{/each}}
-
-{{outlet}}
+</div>

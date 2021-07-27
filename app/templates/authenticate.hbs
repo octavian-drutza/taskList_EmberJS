@@ -1,0 +1,28 @@
+{{page-title 'Authenticate'}}
+<Modal @modalBtnClose={{this.application.changeRoute}} @path={{'/'}}>
+  <Form>
+    <h3>Input Credentials</h3>
+
+    <Form::Input
+      @labelTitle='Name'
+      @type='text'
+      @name='name'
+      @placeholder='Enter Your Name'
+      @value={{this.logData.name}}
+    />
+
+    <Form::Input
+      @labelTitle='Email'
+      @type='email'
+      @name='email'
+      @placeholder='Enter Your Email'
+      @value={{this.logData.email}}
+    />
+
+    <small
+      class='alert-message {{unless this.authentication.alert 'hide'}}'
+    >{{this.authentication.message}}</small>
+
+    <Form::Button @formBtnAct={{this.auth}} @formBtnName='Log In' />
+  </Form>
+</Modal>

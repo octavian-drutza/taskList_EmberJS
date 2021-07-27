@@ -22,6 +22,14 @@ body {
   padding: 10px;
   margin-right: 10px;
   text-decoration: none;
+  font-size: inherit;
+  margin-left: 5px;
+}
+
+.header-message-container .loged {
+  margin-left: 30px;
+  margin-right: 30px;
+  color: #3498db;
 }
 
 .columns-container {
@@ -57,7 +65,8 @@ body {
   max-width: 250px;
 }
 
-.ticket-big {
+.ticket-big,
+.user-big {
   position: absolute;
   left: 0;
   top: 0;
@@ -275,6 +284,10 @@ select:focus {
 
 .ember-power-select-selected-item {
   font-size: inherit;
+}
+
+.alert-message {
+  color: red;
 }
 
 @media screen and (max-width: 800px) {

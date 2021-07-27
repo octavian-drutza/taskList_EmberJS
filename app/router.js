@@ -18,4 +18,5 @@ Router.map(function () {
     this.route('add');
     this.route('preview', { path: 'preview/:id' });
   });
+  this.route('authenticate');
 });

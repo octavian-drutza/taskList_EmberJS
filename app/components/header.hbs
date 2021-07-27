@@ -2,10 +2,20 @@
   <div class='header-container'>
     <LinkTo @route='ticket.add' class='header-button'>+ Add Ticket</LinkTo>
     <LinkTo @route='user.add' class='header-button'>+ Add User</LinkTo>
+    <LinkTo @route='authenticate' class='header-button'>Log In</LinkTo>
     <div class='header-message-container'>
-      <span class='message'>{{@headerMessage}}</span>
+      <span class='action'>{{@headerMessage}}</span>
       <span> : </span>
       <span class='date'>{{@headerDate}}</span>
+      <span class='loged'>{{if @userIsLoged 'You are loged in as'}}
+        <LinkTo
+          @route='user.preview'
+          @model={{@userLogedId}}
+        >{{@userLoged}}</LinkTo></span>
     </div>
+    <button
+      {{on 'click' @logOut}}
+      class='header-button {{unless @userIsLoged 'hide'}}'
+    >Log Out</button>
   </div>
 </header>
