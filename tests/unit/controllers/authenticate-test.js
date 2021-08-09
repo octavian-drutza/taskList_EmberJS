@@ -4,12 +4,8 @@ import Service from '@ember/service';
 
 /* Stub authentication service */
 class Authentication extends Service {
-  stub = true;
   auth() {
-    console.log('i was called from tests');
-    let x = true;
-    console.log(x, 'i am wht is returned');
-    return this.stub;
+    return true;
   }
 }
 
