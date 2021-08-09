@@ -1,12 +1,18 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Service | date', function(hooks) {
+module('Unit | Service | date', function (hooks) {
   setupTest(hooks);
 
-  // TODO: Replace this with your real tests.
-  test('it exists', function(assert) {
-    let service = this.owner.lookup('service:date');
-    assert.ok(service);
+  test('should return a date', function (assert) {
+    let date = this.owner.lookup('service:date');
+
+    let genDate = date.date();
+
+    assert.equal(
+      typeof genDate === 'string',
+      true,
+      'confirms the date is a string'
+    );
   });
 });

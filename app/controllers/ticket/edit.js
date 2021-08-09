@@ -11,13 +11,13 @@ export default class TicketEditController extends Controller {
 
   @action
   saveChanges() {
-    this.model.ticket.save().then(() => this.application.changeRoute('/'));
+    this.ticket.save().then(() => this.application.changeRoute('/'));
     this.dialog.closeDialog();
   }
 
   @action
   discardChanges(path) {
-    this.model.ticket.rollbackAttributes();
+    this.ticket.rollbackAttributes();
     this.application.changeRoute(path);
   }
 }

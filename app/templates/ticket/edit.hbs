@@ -1,31 +1,31 @@
 {{!-- {{page-title 'Edit Ticket'}} --}}
-<h3>id: {{this.model.ticket.id}}</h3>
+<h3>id: {{this.ticket.id}}</h3>
 <Modal @modalBtnClose={{this.discardChanges}} @path={{'/'}}>
   <Form>
     <h3>Edit ticket</h3>
     <small>Change status?</small>
     <PowerSelect
-      @selected={{capitalize this.model.ticket.status}}
+      @selected={{capitalize this.ticket.status}}
       @options={{this.types.statusType}}
-      @onChange={{fn (mut this.model.ticket.status)}}
+      @onChange={{fn (mut this.ticket.status)}}
       as |status|
     >
       {{capitalize status}}
     </PowerSelect>
     <small>Change developer?</small>
     <PowerSelect
-      @selected={{this.model.ticket.developer}}
+      @selected={{this.ticket.developer}}
       @options={{this.developers}}
-      @onChange={{fn (mut this.model.ticket.developer)}}
+      @onChange={{fn (mut this.ticket.developer)}}
       as |user|
     >
       {{user.name}}
     </PowerSelect>
     <small>Change tester?</small>
     <PowerSelect
-      @selected={{this.model.ticket.tester}}
+      @selected={{this.ticket.tester}}
       @options={{this.testers}}
-      @onChange={{fn (mut this.model.ticket.tester)}}
+      @onChange={{fn (mut this.ticket.tester)}}
       as |user|
     >
       {{user.name}}
@@ -36,7 +36,7 @@
       @type='text'
       @name='title'
       @placeholder='Enter Title'
-      @value={{this.model.ticket.title}}
+      @value={{this.ticket.title}}
     />
     <Form::Textarea
       @labelTitle='Description'
@@ -44,7 +44,7 @@
       @cols='30'
       @rows='10'
       @placeholder='Enter description here'
-      @value={{this.model.ticket.description}}
+      @value={{this.ticket.description}}
     />
 
     <Form::Button @formBtnAct={{this.dialog.openDialog}} @formBtnName='Save' />
@@ -52,7 +52,7 @@
   </Form>
 </Modal>
 <ConfirmationDialog
-  @ticketTitle={{this.model.title}}
+  @ticketTitle={{this.ticket.title}}
   @dialogConfirm={{this.saveChanges}}
   @dialogDeny={{this.dialog.closeDialog}}
   @isOpen={{this.dialog.state}}

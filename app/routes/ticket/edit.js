@@ -24,5 +24,6 @@ export default class TicketEditRoute extends Route {
       'testers',
       model.users.filter((user) => user.type === 'tester')
     );
+    controller.set('ticket', model.ticket);
   }
 }

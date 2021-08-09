@@ -1,8 +1,6 @@
 import Service from '@ember/service';
-import { action } from '@ember/object';
 
 export default class DateService extends Service {
-  @action
   date() {
     let date = new Date();
     let settings = {

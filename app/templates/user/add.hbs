@@ -29,6 +29,10 @@
       @value={{this.createUser.email}}
     />
 
-    <Form::Button @formBtnAct={{this.create}} @formBtnName='Create' />
+    <small
+      class='alert-message {{unless this.alert 'hide'}}'
+    >{{this.message}}</small>
+
+    <Form::Button @formBtnAct={{this.checkThenCreate}} @formBtnName='Create' />
   </Form>
 </Modal>

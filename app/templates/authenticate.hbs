@@ -8,7 +8,7 @@
       @type='text'
       @name='name'
       @placeholder='Enter Your Name'
-      @value={{this.logData.name}}
+      @value={{this.authentication.logData.name}}
     />
 
     <Form::Input
@@ -16,12 +16,12 @@
       @type='email'
       @name='email'
       @placeholder='Enter Your Email'
-      @value={{this.logData.email}}
+      @value={{this.authentication.logData.email}}
     />
 
     <small
       class='alert-message {{unless this.authentication.alert 'hide'}}'
-    >{{this.authentication.message}}</small>
+    >{{'Wrong credentials!'}}</small>
 
     <Form::Button @formBtnAct={{this.auth}} @formBtnName='Log In' />
   </Form>
