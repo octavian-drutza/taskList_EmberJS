@@ -5,7 +5,8 @@ import Service from '@ember/service';
 /* Stub authentication service */
 class Authentication extends Service {
   auth() {
-    return true;
+    console.log('i was called from inside the test');
+    this.result = true;
   }
 }
 
@@ -19,9 +20,11 @@ module('Unit | Controller | authenticate', function (hooks) {
 
   test('calls for auth method in the authenticate service', function (assert) {
     let authController = this.owner.lookup('controller:authenticate');
+    let stubService = this.owner.lookup('service:authentication');
 
     /* for assertion a stub service will be use and ensure that the method is called */
-    let response = authController.auth();
-    assert.equal(response, true, 'authentication service called successfully');
+    authController.auth();
+    let result = stubService.result;
+    assert.equal(result, true, 'authentication service called successfully');
   });
 });
