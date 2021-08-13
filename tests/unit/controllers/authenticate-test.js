@@ -4,6 +4,8 @@ import Service from '@ember/service';
 
 /* Stub authentication service */
 class Authentication extends Service {
+  result = false;
+
   auth() {
     console.log('i was called from inside the test');
     this.result = true;
